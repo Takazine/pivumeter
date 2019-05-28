@@ -256,6 +256,13 @@ int set_output_device(const char *output_device_name){
         return 0;
     }
 #endif
+#ifdef WITH_DEVICE_I2C_LED_BAR
+    if(strcmp(output_device_name, "i2c-led-bar") == 0){
+        fprintf(stderr, "Using device: i2c-led-bar\n");
+        output_device = i2c_led_bar();
+        return 0;
+    }
+#endif
 #ifdef WITH_DEVICE_BLINKT
     if(strcmp(output_device_name, "blinkt") == 0){
         fprintf(stderr, "Using device: blinkt\n");
