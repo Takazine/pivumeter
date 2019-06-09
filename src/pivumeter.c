@@ -263,6 +263,13 @@ int set_output_device(const char *output_device_name){
         return 0;
     }
 #endif
+#ifdef WITH_DEVICE_I2C_ANALOG_VU
+    if(strcmp(output_device_name, "i2c-analog-vu") == 0){
+        fprintf(stderr, "Using device: i2c-analog-vu\n");
+        output_device = i2c_analog_vu();
+        return 0;
+    }
+#endif
 #ifdef WITH_DEVICE_BLINKT
     if(strcmp(output_device_name, "blinkt") == 0){
         fprintf(stderr, "Using device: blinkt\n");
