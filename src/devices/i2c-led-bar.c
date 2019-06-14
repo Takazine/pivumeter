@@ -116,17 +116,29 @@ static void update(int meter_level_l, int meter_level_r, snd_pcm_scope_ameter_t 
     //					取得する最大値32767.0f      明るさ x LED数
 	
     if(bar < 0) bar = 0;								//下限リミット
-    if(bar < (brightness*NUM_PIXELS)/2 ) {				// gain Up
+    if(bar < (brightness*NUM_PIXELS)*2/3 ) {		// gain Up
 		count++;
 		if(count > 30){
 			count = 0;
-			if(multi < 15)multi++;
+			if(multi < 5){
+				multi++;
+			}else if(multi < 10){
+				multi +=2;
+			}else if(multi < 100){
+				multi +=5;
+			}
 		}
-	}else if(bar > (brightness*NUM_PIXELS)) { 		   	// gein Down
+	}else if(bar > (brightness*NUM_PIXELS)) { 		// gain Down
 		count++;
-		if(count > 10){
+		if(count > 5){
 			count = 0;
-			if(multi > 1)multi--;
+			if(multi > 30){
+				multi-=5;
+			}else if(multi > 10){
+				multi-=2;
+			}else if (multi > 1){
+				multi--;
+			}
 		}
     }else{
 		count = 0;
