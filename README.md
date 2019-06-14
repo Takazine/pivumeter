@@ -15,7 +15,7 @@ Currently, you will need to compile the pivumeter lib from source.
 You may use our automated setup to do so, specifying the output device the wish to use (see `options` below):
 
 ```
-setup.sh blinkt
+setup.sh i2c_led_bar
 ```
 
 if you'd rather compile and set things up yourself, read on!
@@ -23,7 +23,7 @@ if you'd rather compile and set things up yourself, read on!
 #### pre-requisite
 
 ```
-sudo apt-get install build-essential autoconf automake libtool libasound2-dev libfftw3-dev wiringpi
+sudo apt-get install build-essential autoconf automake libtool libasound2-dev libfftw3-dev wiringpi git i2c-tools
 ```
 
 #### clone repository
@@ -31,7 +31,7 @@ sudo apt-get install build-essential autoconf automake libtool libasound2-dev li
 if you haven't done so already, git clone this repository and cd into it:
 
 ```
-git clone https://github.com/pimoroni/pivumeter
+git clone https://github.com/Takazine/pivumeter
 cd pivumeter
 ```
 
@@ -62,6 +62,8 @@ Specify which device to display the VU meter on.
 
 Supported devices:
 
+* i2c_led_bar (16-segment LED driven by PCA9685)
+* i2c_analog_vu (analog VU Meter driven by PCA9685)
 * default (18-segment VU driven by SN3218)
 * blinkt - Simple amplitude meter through Green->Yellow->Red
 * phat-beat - Simple stereo amplitude meter
