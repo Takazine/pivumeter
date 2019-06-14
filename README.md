@@ -8,17 +8,9 @@ In accordance with this license, we have chosen to publish Pi VU Meter under GPL
 
 Pi VU Meter is Derived from the SDL display version of the ameter ALSA level meter plugin.
 
-### Installing
+### Setup
 
 Currently, you will need to compile the pivumeter lib from source.
-
-You may use our automated setup to do so, specifying the output device the wish to use (see `options` below):
-
-```
-setup.sh i2c_led_bar
-```
-
-if you'd rather compile and set things up yourself, read on!
 
 #### pre-requisite
 
@@ -34,6 +26,20 @@ if you haven't done so already, git clone this repository and cd into it:
 git clone https://github.com/Takazine/pivumeter
 cd pivumeter
 ```
+
+#### Install
+
+You may use our automated setup to do so, specifying the output device the wish to use (see `options` below):
+
+```
+setup.sh i2c-led-bar
+```
+
+Setup is complete.
+
+if you'd rather compile and set things up yourself, read on!
+
+
 
 #### compiling from source
 
@@ -62,8 +68,8 @@ Specify which device to display the VU meter on.
 
 Supported devices:
 
-* i2c_led_bar (16-segment LED driven by PCA9685)
-* i2c_analog_vu (analog VU Meter driven by PCA9685)
+* i2c-led-bar (16-segment LED driven by PCA9685)
+* i2c-analog-vu (analog VU Meter driven by PCA9685)
 * default (18-segment VU driven by SN3218)
 * blinkt - Simple amplitude meter through Green->Yellow->Red
 * phat-beat - Simple stereo amplitude meter
